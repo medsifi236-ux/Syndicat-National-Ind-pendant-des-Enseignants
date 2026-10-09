@@ -1,0 +1,12 @@
+{
+  "name": "snide-info-website",
+  "version": "1.0.0",
+  "description": "الواجهة الرقمية للنقابة الوطنية المستقلة للمعمين",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

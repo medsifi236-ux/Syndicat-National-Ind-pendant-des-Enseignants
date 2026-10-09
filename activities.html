@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الأنشطة | SNIDE.INFO</title>
+    <meta name="description" content="أنشطة النقابة الوطنية المستقلة للمعلمين" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body data-page="activities">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="search-wrap" aria-label="بحث">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 015.9 12.6l4.4 4.4 1.4-1.4-4.4-4.4A7.5 7.5 0 1110.5 3zm0 2a5.5 5.5 0 100 11 5.5 5.5 0 000-11z"/></svg>
+          <span>بحث</span>
+        </div>
+        <nav class="socials" aria-label="وسائل التواصل الاجتماعي">
+          <a href="https://x.com/ArabTradeUnion" target="_blank" rel="noreferrer" aria-label="X">X</a>
+          <a href="https://www.instagram.com/arabtradeunion_atuc/" target="_blank" rel="noreferrer" aria-label="Instagram">◎</a>
+          <a href="https://www.linkedin.com/company/arab-trade-union-confederation/" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+          <a href="https://www.facebook.com/profile.php?id=61550086712700" target="_blank" rel="noreferrer" aria-label="Facebook">f</a>
+        </nav>
+      </div>
+    </div>
+
+    <header class="masthead">
+      <div class="masthead-inner">
+        <button class="menu-button" type="button" aria-label="القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="main-nav" aria-label="التصفح الرئيسي">
+          <a href="index.html" class="nav-link">الرئيسية</a>
+          <a href="about.html" class="nav-link">من نحن</a>
+          <a href="activities.html" class="nav-link active">الأنشطة</a>
+          <a href="news.html" class="nav-link">الأخبار</a>
+          <a href="contact.html" class="nav-link">تواصل</a>
+        </nav>
+        <div class="brand-box" aria-label="الشعار">
+          <img src="images/logo.png" alt="شعار النقابة الوطنية المستقلة" class="brand-logo" />
+        </div>
+        <button type="button" class="lang-switcher" id="lang-toggle" aria-label="تبديل اللغة"><span>AR</span><span class="lang-divider">/</span><span>FR</span></button>
+        <button type="button" class="admin-trigger" id="admin-open-btn">إدارة الموقع</button>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div data-page-content></div>
+    </main>
+
+    <div class="admin-modal hidden" id="admin-modal" aria-hidden="true">
+      <div class="admin-panel">
+        <div class="admin-header">
+          <h3>إدارة الموقع</h3>
+          <button type="button" id="admin-close-btn" class="close-btn">إغلاق</button>
+        </div>
+        <div class="admin-tabs">
+          <button type="button" class="tab-button active" data-tab="theme">المظهر</button>
+          <button type="button" class="tab-button" data-tab="images">الصور</button>
+          <button type="button" class="tab-button" data-tab="pages">الصفحات</button>
+          <button type="button" class="tab-button" data-tab="articles">المقالات</button>
+          <button type="button" class="tab-button" data-tab="editors">المحررون</button>
+        </div>
+        <div class="tab-panel active" data-panel="theme">
+          <form id="theme-form" class="admin-form">
+            <div class="fields-grid">
+              <label>اللون الأساسي<input type="color" name="accent" value="#d4a71f" /></label>
+              <label>اللون الداكن<input type="color" name="accentDark" value="#1d7a52" /></label>
+              <label>لون الخلفية<input type="color" name="bg" value="#f7f4ef" /></label>
+              <label>لون النص<input type="color" name="text" value="#2a2a2a" /></label>
+              <label>لون الشريط العلوي<input type="color" name="topbar" value="#1d3a2f" /></label>
+            </div>
+            <button type="submit" class="primary-btn">حفظ</button>
+          </form>
+        </div>
+        <div class="tab-panel" data-panel="images">
+          <form id="media-form" class="admin-form">
+            <label>صورة الصفحة الرئيسية <input type="file" name="heroImage" accept="image/*" /> </label>
+            <label>شعار الموقع <input type="file" name="logoImage" accept="image/*" /> </label>
+            <label>صورة البطاقة الأولى <input type="file" name="cardOneImage" accept="image/*" /> </label>
+            <label>صورة البطاقة الثانية <input type="file" name="cardTwoImage" accept="image/*" /> </label>
+            <button type="submit" class="primary-btn">رفع وتطبيق</button>
+          </form>
+        </div>
+        <div class="tab-panel" data-panel="pages">
+          <form id="page-form" class="admin-form">
+            <label>الصفحة <select name="pageKey"></select> </label>
+            <label>عنوان الصفحة <input type="text" name="pageTitle" placeholder="عنوان الصفحة" required /> </label>
+            <label>المقدمة <textarea name="pageIntro" rows="2" placeholder="نبذة مختصرة" required></textarea> </label>
+            <label>نص الصفحة <textarea name="pageBody" rows="5" placeholder="اكتب محتوى الصفحة" required></textarea> </label>
+            <label>صورة الصفحة <input type="file" name="pageImage" accept="image/*" /> </label>
+            <button type="submit" class="primary-btn">حفظ الصفحة</button>
+          </form>
+        </div>
+        <div class="tab-panel" data-panel="articles">
+          <form id="article-form" class="admin-form">
+            <label>عنوان المقال <input type="text" name="title" placeholder="عنوان المقال" required /> </label>
+            <label>ملخص المقال <textarea name="summary" rows="3" placeholder="الملخص" required></textarea> </label>
+            <label>صورة المقال <input type="file" name="articleImage" accept="image/*" /> </label>
+            <label>النص الكامل <textarea name="content" rows="5" placeholder="اكتب محتوى المقال" required></textarea> </label>
+            <button type="submit" class="primary-btn">إضافة مقال</button>
+          </form>
+        </div>
+        <div class="tab-panel" data-panel="editors">
+          <form id="editor-form" class="admin-form">
+            <label>اسم المحرر <input type="text" name="name" placeholder="اسم المحرر" required /> </label>
+            <label>الدور <input type="text" name="role" placeholder="مثال: محرر رئيسي" required /> </label>
+            <label>البريد الإلكتروني <input type="email" name="email" placeholder="name@example.com" required /> </label>
+            <button type="submit" class="primary-btn">إضافة محرر</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

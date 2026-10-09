@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: snide-info
+    runtime: node
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/auth/status
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SNIDE_ADMIN_PASSWORD
+        sync: false

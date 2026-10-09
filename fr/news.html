@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actualités | SNIDE.INFO</title>
+    <meta name="description" content="Actualités - SNIDE.INFO | Syndicat national indépendant" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body data-page="news">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="search-wrap" aria-label="Rechercher">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 015.9 12.6l4.4 4.4 1.4-1.4-4.4-4.4A7.5 7.5 0 1110.5 3zm0 2a5.5 5.5 0 100 11 5.5 5.5 0 000-11z"/></svg>
+          <span>Rechercher</span>
+        </div>
+        <nav class="socials" aria-label="Réseaux sociaux">
+          <a href="https://x.com/ArabTradeUnion" target="_blank" rel="noreferrer" aria-label="X">X</a>
+          <a href="https://www.instagram.com/arabtradeunion_atuc/" target="_blank" rel="noreferrer" aria-label="Instagram">◎</a>
+          <a href="https://www.linkedin.com/company/arab-trade-union-confederation/" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
+          <a href="https://www.facebook.com/profile.php?id=61550086712700" target="_blank" rel="noreferrer" aria-label="Facebook">f</a>
+        </nav>
+      </div>
+    </div>
+
+    <header class="masthead">
+      <div class="masthead-inner">
+        <button class="menu-button" type="button" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="main-nav" aria-label="Navigation principale">
+          <a href="index.html" class="nav-link">Accueil</a>
+          <a href="about.html" class="nav-link">À propos</a>
+          <a href="activities.html" class="nav-link">Activités</a>
+          <a href="news.html" class="nav-link active">Actualités</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="brand-box" aria-label="Logo">
+          <img src="../images/logo.png" alt="Logo du syndicat" class="brand-logo" />
+        </div>
+        <button type="button" class="lang-switcher" id="lang-toggle" aria-label="Changer la langue"><span>FR</span><span class="lang-divider">/</span><span>AR</span></button>
+        <button type="button" class="admin-trigger" id="admin-open-btn">Gestion du site</button>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <div data-page-content></div>
+    </main>
+
+    <div class="admin-modal hidden" id="admin-modal" aria-hidden="true">
+      <div class="admin-panel">
+        <div class="admin-header">
+          <h3>Gestion du site</h3>
+          <button type="button" id="admin-close-btn" class="close-btn">Fermer</button>
+        </div>
+        <div class="admin-tabs">
+          <button type="button" class="tab-button active" data-tab="theme">Apparence</button>
+          <button type="button" class="tab-button" data-tab="images">Images</button>
+          <button type="button" class="tab-button" data-tab="pages">Pages</button>
+          <button type="button" class="tab-button" data-tab="articles">Articles</button>
+          <button type="button" class="tab-button" data-tab="editors">Rédacteurs</button>
+        </div>
+        <div class="tab-panel active" data-panel="theme">
+          <form id="theme-form" class="admin-form">
+            <div class="fields-grid">
+              <label>Couleur principale<input type="color" name="accent" value="#ed6d43" /></label>
+              <label>Couleur foncée<input type="color" name="accentDark" value="#cd3a2f" /></label>
+              <label>Couleur de fond<input type="color" name="bg" value="#f3f0eb" /></label>
+              <label>Couleur du texte<input type="color" name="text" value="#1d1d1f" /></label>
+              <label>Couleur de la barre supérieure<input type="color" name="topbar" value="#2f2f2f" /></label>
+            </div>
+            <button type="submit" class="primary-btn">Enregistrer</button>
+          </form>
+        </div>
+        <div class="tab-panel" data-panel="images">
+          <form id="media-form" class="admin-form">
+            <label> Image d'accueil <input type="file" name="heroImage" accept="image/*" /> </label>
+            <label> Logo du site <input type="file" name="logoImage" accept="image/*" /> </label>
+            <label> Image carte 1 <input type="file" name="cardOneImage" accept="image/*" /> </label>
+            <label> Image carte 2 <input type="file" name="cardTwoImage" accept="image/*" /> </label>
+            <button type="submit" class="primary-btn">Télécharger et appliquer</button>
+          </form>
+        </div>
+        <div class="tab-panel" data-panel="pages">
+          <form id="page-form" class="admin-form">
+            <label> Page <select name="pageKey"></select> </label>
+            <label> Titre de la page <input type="text" name="pageTitle" placeholder="Titre de la page" required /> </label>
+            <label> Intro <textarea name="pageIntro" rows="2" placeholder="Brève introduction" required></textarea> </label>
+            <label> Texte <textarea name="pageBody" rows="5" placeholder="Rédigez le contenu"></textarea> </label>
+            <label> Image de la page <input type="file" name="pageImage" accept="image/*" /> </label>
+            <button type="submit" class="primary-btn">Enregistrer la page</button>
+          </form>
+        </div>
+        <div class="tab-panel" data-panel="articles">
+          <form id="article-form" class="admin-form">
+            <label> Titre de l'article <input type="text" name="title" placeholder="Titre de l'article" required /> </label>
+            <label> Résumé <textarea name="summary" rows="3" placeholder="Résumé" required></textarea> </label>
+            <label> Image de l'article <input type="file" name="articleImage" accept="image/*" /> </label>
+            <label> Texte complet <textarea name="content" rows="5" placeholder="Rédigez le contenu de l'article" required></textarea> </label>
+            <button type="submit" class="primary-btn">Ajouter un article</button>
+          </form>
+        </div>
+        <div class="tab-panel" data-panel="editors">
+          <form id="editor-form" class="admin-form">
+            <label> Nom du rédacteur <input type="text" name="name" placeholder="Nom du rédacteur" required /> </label>
+            <label> Rôle <input type="text" name="role" placeholder="Ex. Rédacteur en chef" required /> </label>
+            <label> E-mail <input type="email" name="email" placeholder="email@example.com" required /> </label>
+            <button type="submit" class="primary-btn">Ajouter un rédacteur</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="../app.js"></script>
+  </body>
+</html>
